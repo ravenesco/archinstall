@@ -22,7 +22,7 @@ paru -Syu --needed --noconfirm aic94xx-firmware ast-firmware linux-firmware-qlog
   wd719x-firmware upd72020x-fw
 
 # Apps
-paru -Syu --needed --noconfirm brave-bin librewolf-bin terminator \
+paru -Syu --needed --noconfirm brave-bin librewolf-bin terminator ghostty \
   zstd mlocate mpv bat bat-extras fastfetch lolcat bind man-db tealdeer lsd htop qbittorrent \
   python-pipenv keepassxc obs-studio ocs-url downgrade neovim dolphin ark gwenview lf yazi \
   tauon-music-box digikam calibre filelight gimp-devel imagemagick ticktick less thunar \
@@ -32,7 +32,7 @@ paru -Syu --needed --noconfirm brave-bin librewolf-bin terminator \
   gitnuro-bin xclicker freetube pkgfile man-pages openvpn networkmanager-openvpn mcomix wget \
   nodejs npm gvfs gvfs-mtp android-tools virtualbox cava zoxide bluez bluez-utils blueman \
   tela-circle-icon-theme-dracula yt-dlp cliphist bc xdotool scrot maim feh brightnessctl swww \
-  xclip
+  xclip lxappearance-gtk3
 
 # Some fonts
 paru -Syu --needed --noconfirm gnu-free-fonts noto-fonts ttf-bitstream-vera ttf-croscore \
