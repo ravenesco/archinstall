@@ -1,0 +1,6 @@
+Before running postinstall-part1.sh
+  1. /etc/sudoers
+    - Uncomment NOPASSWD line in
+  2. /etc/pacman.conf
+    - Uncomment [multiliba]
+    - Set ParallelDownloads to 10

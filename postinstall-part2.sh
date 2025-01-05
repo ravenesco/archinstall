@@ -1,15 +1,17 @@
 #!/bin/bash
 
-# /opt/hope folder
-sudo mkdir /opt/hope
-sudo chown -R $USER:$GROUP /opt/hope
+username="hope"
+
+# /opt/$username folder
+sudo mkdir /opt/$username
+sudo chown -R $USER:$GROUP /opt/$username
 
 # Setup rust for paru installation
 sudo pacman -Syu --needed --noconfirm rustup
 rustup default stable
 
 # Install paru
-cd /opt/hope
+cd /opt/$username
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
@@ -25,14 +27,22 @@ paru -Syu --needed --noconfirm aic94xx-firmware ast-firmware linux-firmware-qlog
 paru -Syu --needed --noconfirm brave-bin librewolf-bin terminator ghostty \
   zstd mlocate mpv bat bat-extras fastfetch lolcat bind man-db tealdeer lsd htop qbittorrent \
   python-pipenv keepassxc obs-studio ocs-url downgrade neovim dolphin ark gwenview lf yazi \
-  tauon-music-box digikam calibre filelight gimp-devel imagemagick ticktick less thunar \
+  tauon-music-box digikam calibre filelight imagemagick ticktick less thunar \
   thunar-volman thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin \
   thunar-vcs-plugin ripgrep gnome-font-viewer reflector unzip nwg-look pavucontrol \
   media-downloader-git tumbler network-manager-applet stow tmux discover pamac okular \
   gitnuro-bin xclicker freetube pkgfile man-pages openvpn networkmanager-openvpn mcomix wget \
   nodejs npm gvfs gvfs-mtp android-tools virtualbox cava zoxide bluez bluez-utils blueman \
   tela-circle-icon-theme-dracula yt-dlp cliphist bc xdotool scrot maim feh brightnessctl swww \
-  xclip lxappearance-gtk3
+  xclip lxappearance-gtk3 fzf gnome-calculator flatpak luarocks
+
+# GIMP-devel (might refuse to install and break installation of the rest packages,
+# and thus commented for now; safer to install separately afterwards)
+# paru -Syu --needed --noconfirm gimp-devel
+
+# Packages for OBS virtual camera setup
+paru -Syu --needed --noconfirm guvcview guvcview-qt pipewire-v4l2 v4l2loopback-dkms \
+  v4l2loopback-utils lib32-pipewire-v4l2
 
 # Some fonts
 paru -Syu --needed --noconfirm gnu-free-fonts noto-fonts ttf-bitstream-vera ttf-croscore \
@@ -40,7 +50,7 @@ paru -Syu --needed --noconfirm gnu-free-fonts noto-fonts ttf-bitstream-vera ttf-
   ttf-ms-fonts nerd-fonts ttf-maple
 
 ## Gaming tools
-paru -Syu --needed --noconfirm steam lutris wine-staging
+paru -Syu --needed --noconfirm steam lutris wine-staging protonup-qt-bin
 
 # Wine dependencies (from lutris github)
 paru -Syu --needed --asdeps --noconfirm giflib lib32-giflib gnutls lib32-gnutls v4l-utils \
@@ -49,9 +59,15 @@ paru -Syu --needed --asdeps --noconfirm giflib lib32-giflib gnutls lib32-gnutls 
   libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs \
   vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2
 
+# Display manager
+paru -Syu --needed --noconfirm ly
+
+## Awesome
+paru -Syu --needed --noconfirm xorg awesome lain rofi picom polkit-gnomoe
+
 ## Hyprland
 paru -Syu --needed --noconfirm hyprland hyprshot hyprpicker egl-wayland qt5 qt6 qt5-wayland \
-  qt6-wayland playerctl ly uwsm hyprpolkitagent wofi xsel swaync hyprpaper hyprlock waybar \
+  qt6-wayland playerctl uwsm hyprpolkitagent wofi xsel swaync hyprpaper hyprlock waybar \
   wl-clipboard cliphist libva-nvidia-driver wlr-randr xdg-desktop-portal-hyprland hyprgraphics \
   hypridle hyprland-qtutils hyprutils
 
@@ -61,8 +77,14 @@ sudo pkgfile -u
 # Setup tmux
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
+# Install flatpaks
+flatpak install flathub com.github.vikdevelop.timer
+
 # Enable services
 systemctl --user enable pipewire
 sudo systemctl enable ly
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth.service
+
+# Add user to newly created groups
+sudo usermod -aG vboxusers $username
