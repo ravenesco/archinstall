@@ -26,15 +26,16 @@ paru -Syu --needed --noconfirm aic94xx-firmware ast-firmware linux-firmware-qlog
 # Apps
 paru -Syu --needed --noconfirm brave-bin librewolf-bin terminator ghostty \
   zstd mlocate mpv bat bat-extras fastfetch lolcat bind man-db tealdeer lsd htop qbittorrent \
-  python-pipenv keepassxc obs-studio ocs-url downgrade neovim dolphin ark gwenview lf yazi \
+  python-pipenv keepassxc obs-studio ocs-url downgrade dolphin ark gwenview yazi \
   tauon-music-box digikam calibre filelight imagemagick ticktick less thunar \
   thunar-volman thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin \
-  thunar-vcs-plugin ripgrep gnome-font-viewer reflector unzip nwg-look pavucontrol \
+  thunar-vcs-plugin ripgrep gnome-font-viewer font-manager reflector unzip pavucontrol flatpak \
   media-downloader-git tumbler network-manager-applet stow tmux discover pamac okular \
   gitnuro-bin xclicker freetube pkgfile man-pages openvpn networkmanager-openvpn mcomix wget \
   nodejs npm gvfs gvfs-mtp android-tools virtualbox cava zoxide bluez bluez-utils blueman \
-  tela-circle-icon-theme-dracula yt-dlp cliphist bc xdotool scrot maim feh brightnessctl swww \
-  xclip lxappearance-gtk3 fzf gnome-calculator flatpak luarocks
+  yt-dlp cliphist xclip bc xdotool scrot maim brightnessctl feh swww gnome-calculator \
+  neovim fzf luarocks \
+  nwg-look lxappearance-gtk3 zukitwo-themes-git tela-circle-icon-theme-dracula
 
 # GIMP-devel (might refuse to install and break installation of the rest packages,
 # and thus commented for now; safer to install separately afterwards)
@@ -63,13 +64,15 @@ paru -Syu --needed --asdeps --noconfirm giflib lib32-giflib gnutls lib32-gnutls 
 paru -Syu --needed --noconfirm ly
 
 ## Awesome
-paru -Syu --needed --noconfirm xorg awesome lain rofi picom polkit-gnomoe
+paru -Syu --needed --noconfirm xorg awesome lain rofi picom polkit-gnomoe acpi
+mkdir -p /home/$username/.config/awesome
+git clone https://github.com/streetturtle/awesome-wm-widgets.git /home/$username/.config/awesome
 
 ## Hyprland
 paru -Syu --needed --noconfirm hyprland hyprshot hyprpicker egl-wayland qt5 qt6 qt5-wayland \
-  qt6-wayland playerctl uwsm hyprpolkitagent wofi xsel swaync hyprpaper hyprlock waybar \
+  qt6-wayland playerctl uwsm hyprpolkitagent wofi xsel mako hyprpaper hyprlock waybar \
   wl-clipboard cliphist libva-nvidia-driver wlr-randr xdg-desktop-portal-hyprland hyprgraphics \
-  hypridle hyprland-qtutils hyprutils
+  hypridle hyprland-qtutils hyprutils swayidle swaylock swaylock-fancy-git pyprland-git
 
 # Sync pkg database (needed for command-not-found zsh plugin to work)
 sudo pkgfile -u

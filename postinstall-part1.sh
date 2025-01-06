@@ -23,7 +23,7 @@ ff02::2    ip6-allrouters
 # Essential packages
 pacman -Syu --needed --noconfirm ntfs-3g grub efibootmgr os-prober dosfstools mtools mkinitcpio \
   zsh btrfs-progs grub-btrfs pipewire lib32-pipewire pipewire-pulse pipewire-alsa pipewire-audio \
-  wireplumber net-tools dhcpcd wpa_supplicant networkmanager brightnessctl sudo
+  wireplumber alsa-utils net-tools dhcpcd wpa_supplicant networkmanager brightnessctl sudo
 
 # Grub Setup
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id="Arch BTW" --recheck
