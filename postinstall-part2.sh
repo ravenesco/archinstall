@@ -27,7 +27,7 @@ paru -Syu --needed --noconfirm aic94xx-firmware ast-firmware linux-firmware-qlog
 paru -Syu --needed --noconfirm brave-bin librewolf-bin terminator ghostty \
   zstd mlocate mpv bat bat-extras fastfetch lolcat bind man-db tealdeer lsd htop qbittorrent \
   python-pipenv keepassxc obs-studio ocs-url downgrade dolphin ark gwenview yazi \
-  tauon-music-box digikam calibre filelight imagemagick ticktick less thunar \
+  tauon-music-box digikam calibre filelight imagemagick ticktick less gnome-disk-utility thunar \
   thunar-volman thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin \
   thunar-vcs-plugin ripgrep gnome-font-viewer font-manager reflector unzip pavucontrol flatpak \
   media-downloader-git tumbler network-manager-applet stow tmux discover pamac okular \
@@ -51,7 +51,8 @@ paru -Syu --needed --noconfirm gnu-free-fonts noto-fonts ttf-bitstream-vera ttf-
   ttf-ms-fonts nerd-fonts ttf-maple
 
 ## Gaming tools
-paru -Syu --needed --noconfirm steam lutris wine-staging protonup-qt-bin
+paru -Syu --needed --noconfirm steam lutris wine-staging protonup-qt-bin gamemode lib32-gamemode \
+  mangohud lib32-mangohud
 
 # Wine dependencies (from lutris github)
 paru -Syu --needed --asdeps --noconfirm giflib lib32-giflib gnutls lib32-gnutls v4l-utils \
@@ -72,7 +73,11 @@ git clone https://github.com/streetturtle/awesome-wm-widgets.git /home/$username
 paru -Syu --needed --noconfirm hyprland hyprshot hyprpicker egl-wayland qt5 qt6 qt5-wayland \
   qt6-wayland playerctl uwsm hyprpolkitagent wofi xsel mako hyprpaper hyprlock waybar \
   wl-clipboard cliphist libva-nvidia-driver wlr-randr xdg-desktop-portal-hyprland hyprgraphics \
-  hypridle hyprland-qtutils hyprutils swayidle swaylock swaylock-fancy-git pyprland-git
+  hypridle hyprland-qtutils hyprutils swayidle swaylock swaylock-fancy-git pyprland-git cpio
+
+# Setup Hyprland plugins
+hyprpm update
+hyprpm add https://github.com/shezdy/hyprsplit
 
 # Sync pkg database (needed for command-not-found zsh plugin to work)
 sudo pkgfile -u
