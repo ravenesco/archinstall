@@ -26,14 +26,14 @@ paru -Syu --needed --noconfirm aic94xx-firmware ast-firmware linux-firmware-qlog
 # Apps
 paru -Syu --needed --noconfirm brave-bin librewolf-bin terminator ghostty \
   zstd mlocate mpv bat bat-extras fastfetch lolcat bind man-db tealdeer lsd htop qbittorrent \
-  python-pipenv keepassxc obs-studio ocs-url downgrade dolphin ark gwenview yazi \
+  uv keepassxc obs-studio ocs-url downgrade dolphin ark gwenview yazi \
   tauon-music-box digikam calibre filelight imagemagick ticktick less gnome-disk-utility thunar \
   thunar-volman thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin \
   thunar-vcs-plugin ripgrep gnome-font-viewer font-manager reflector unzip pavucontrol flatpak \
   media-downloader-git tumbler network-manager-applet stow tmux discover pamac okular \
   gitnuro-bin xclicker freetube pkgfile man-pages openvpn networkmanager-openvpn mcomix wget \
   nodejs npm gvfs gvfs-mtp android-tools virtualbox cava zoxide bluez bluez-utils blueman \
-  yt-dlp cliphist xclip bc xdotool scrot maim brightnessctl feh swww gnome-calculator \
+  yt-dlp cliphist xclip bc xdotool scrot maim brightnessctl feh swww gnome-calculator fd \
   neovim fzf luarocks \
   nwg-look lxappearance-gtk3 zukitwo-themes-git tela-circle-icon-theme-dracula
 
