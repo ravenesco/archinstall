@@ -33,7 +33,7 @@ paru -Syu --needed --noconfirm brave-bin librewolf-bin terminator ghostty \
   media-downloader-git tumbler network-manager-applet stow tmux discover pamac okular \
   gitnuro-bin xclicker freetube pkgfile man-pages openvpn networkmanager-openvpn mcomix wget \
   nodejs npm gvfs gvfs-mtp android-tools virtualbox cava zoxide bluez bluez-utils blueman \
-  yt-dlp cliphist xclip bc xdotool scrot maim brightnessctl feh swww gnome-calculator fd \
+  yt-dlp cliphist xclip copyq bc xdotool scrot maim brightnessctl feh swww gnome-calculator fd \
   neovim fzf luarocks \
   nwg-look lxappearance-gtk3 zukitwo-themes-git tela-circle-icon-theme-dracula
 
