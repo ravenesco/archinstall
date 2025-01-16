@@ -13,20 +13,17 @@ mount /dev/disk/by-label/ROOT /mnt
 btrfs su cr /mnt/@
 btrfs su cr /mnt/@home
 btrfs su cr /mnt/@.snapshots
-btrfs su cr /mnt/@tmp
-btrfs su cr /mnt/@run@media
-btrfs su cr /mnt/@var
+btrfs su cr /mnt/@var@log
+btrfs su cr /mnt/@var@tmp
 
 umount -R /mnt
-mount -o noatime,compress=zstd,space_cache=v2,subvol=@ /dev/nvme0n1p3 /mnt
-mkdir -p /mnt/{boot,var,home,.snapshots,tmp,run/media}
-mount -o noatime,compress=zstd,space_cache=v2,subvol=@home /dev/nvme0n1p3 /mnt/home
-mount -o noatime,compress=zstd,space_cache=v2,subvol=@.snapshots /dev/nvme0n1p3 /mnt/.snapshots
-mount -o noatime,compress=zstd,space_cache=v2,subvol=@var /dev/nvme0n1p3 /mnt/var
-mount -o noatime,compress=zstd,space_cache=v2,subvol=@tmp /dev/nvme0n1p3 /mnt/tmp
-mount -o noatime,compress=zstd,space_cache=v2,subvol=@run@media /dev/nvme0n1p3 /mnt/run/media
+mount -o noatime,compress=zstd,space_cache=v2,commit=120,subvol=@ /dev/nvme0n1p3 /mnt
+mkdir -p /mnt/{boot/efi,var/log,var/tmp,home,.snapshots,tmp}
+mount -o noatime,compress=zstd,space_cache=v2,commit=120,subvol=@home /dev/nvme0n1p3 /mnt/home
+mount -o noatime,compress=zstd,space_cache=v2,commit=120,subvol=@.snapshots /dev/nvme0n1p3 /mnt/.snapshots
+mount -o noatime,compress=zstd,space_cache=v2,commit=120,subvol=@var@log /dev/nvme0n1p3 /mnt/var/log
+mount -o noatime,compress=zstd,space_cache=v2,commit=120,subvol=@var@tmp /dev/nvme0n1p3 /mnt/var/tmp
 
-mkdir -p /mnt/boot/efi
 mount /dev/disk/by-label/ESP /mnt/boot/efi
 
 
