@@ -17,7 +17,9 @@ cd paru
 makepkg -si
 
 # NVIDIA Drivers
-paru -Syu --needed --noconfirm nvidia-open lib32-nvidia-utils nvidia-utils nvidia-settings
+paru -Syu --needed --noconfirm nvidia-dkms
+# paru -Syu --needed --noconfirm nvidia-open-dkms
+paru -Syu --needed --noconfirm lib32-nvidia-utils nvidia-utils nvidia-settings
 
 # Install "Possibly missing firmware" (some packages are from AUR)
 paru -Syu --needed --noconfirm aic94xx-firmware ast-firmware linux-firmware-qlogic \
@@ -27,15 +29,16 @@ paru -Syu --needed --noconfirm aic94xx-firmware ast-firmware linux-firmware-qlog
 paru -Syu --needed --noconfirm brave-bin librewolf-bin terminator ghostty \
   zstd mlocate mpv bat bat-extras fastfetch lolcat bind man-db tealdeer lsd htop qbittorrent \
   uv keepassxc obs-studio ocs-url downgrade dolphin ark gwenview yazi \
-  tauon-music-box digikam calibre filelight imagemagick ticktick less gnome-disk-utility thunar \
-  thunar-volman thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin \
+  tauon-music-box digikam calibre komikku filelight imagemagick ticktick less gnome-disk-utility\
+  thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin \
   thunar-vcs-plugin ripgrep gnome-font-viewer font-manager reflector unzip pavucontrol flatpak \
   media-downloader-git tumbler network-manager-applet stow tmux discover pamac okular \
   gitnuro-bin xclicker freetube pkgfile man-pages openvpn networkmanager-openvpn mcomix wget \
   nodejs npm gvfs gvfs-mtp android-tools virtualbox cava zoxide bluez bluez-utils blueman \
   yt-dlp cliphist xclip copyq bc xdotool scrot maim brightnessctl feh swww gnome-calculator fd \
-  neovim fzf luarocks \
-  nwg-look lxappearance-gtk3 zukitwo-themes-git tela-circle-icon-theme-dracula
+  neovim-nightly neovim-telescope-fzf-native-git neovim-telescope-ui-select-git fzf luarocks \
+  nwg-look lxappearance-gtk3 zukitwo-themes-git tela-circle-icon-theme-dracula gearlever \
+  archlinux-xdg-menu
 
 # GIMP-devel (might refuse to install and break installation of the rest packages,
 # and thus commented for now; safer to install separately afterwards)
@@ -65,15 +68,15 @@ paru -Syu --needed --asdeps --noconfirm giflib lib32-giflib gnutls lib32-gnutls 
 paru -Syu --needed --noconfirm ly
 
 ## Awesome
-paru -Syu --needed --noconfirm xorg awesome lain rofi picom polkit-gnomoe acpi
+paru -Syu --needed --noconfirm xorg awesome lain rofi picom polkit-gnome acpi
 mkdir -p /home/$username/.config/awesome
 git clone https://github.com/streetturtle/awesome-wm-widgets.git /home/$username/.config/awesome
 
 ## Hyprland
-paru -Syu --needed --noconfirm hyprland hyprshot hyprpicker egl-wayland qt5 qt6 qt5-wayland \
-  qt6-wayland playerctl uwsm hyprpolkitagent wofi xsel mako hyprpaper hyprlock waybar \
-  wl-clipboard cliphist libva-nvidia-driver wlr-randr xdg-desktop-portal-hyprland hyprgraphics \
-  hypridle hyprland-qtutils hyprutils swayidle swaylock swaylock-fancy-git pyprland-git cpio
+paru -Syu --needed --noconfirm hyprland-git hyprpaper-git hyprpicker-git hyprpolkitagent-git \
+  hyprshot-git hyprland-qtutils-git hyprutils-git xdg-desktop-portal-hyprland-git hyprgraphics-git \
+  egl-wayland qt5 qt6 qt5-wayland qt6-wayland playerctl uwsm wofi xsel mako waybar wl-clipboard \
+  libva-nvidia-driver wlr-randr pyprland-git swayidle swaylock swaylock-fancy-git cpio
 
 # Setup Hyprland plugins
 hyprpm update
@@ -83,10 +86,12 @@ hyprpm add https://github.com/shezdy/hyprsplit
 sudo pkgfile -u
 
 # Setup tmux
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+# git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 # Install flatpaks
 flatpak install flathub com.github.vikdevelop.timer
+flatpak install flathub com.github.tchx84.Flatseal
+flatpak install flathub org.bionus.Grabber
 
 # Enable services
 systemctl --user enable pipewire
@@ -96,3 +101,6 @@ sudo systemctl enable bluetooth.service
 
 # Add user to newly created groups
 sudo usermod -aG vboxusers $username
+
+# Create custom $HOME directories
+mkdir /home/$username/{AI_Tools,Games,Mounts}
