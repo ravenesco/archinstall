@@ -1,11 +1,11 @@
-Before running postinstall-part1.sh
+Before running 2-postinstall-part-1.sh
   1. /etc/sudoers
     - Uncomment NOPASSWD line
   2. /etc/pacman.conf
     - Uncomment [multilib]
     - Set ParallelDownloads to 10
 
-After running postinstall-part1.sh
+After running 2-postinstall-part-1.sh
   1. /etc/pacman.conf
     - Add the following repos above [core] section
     [cachyos-v3]

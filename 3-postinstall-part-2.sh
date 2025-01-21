@@ -32,13 +32,13 @@ paru -Syu --needed --noconfirm brave-bin librewolf-bin terminator ghostty \
   tauon-music-box digikam calibre komikku filelight imagemagick ticktick less gnome-disk-utility\
   thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin \
   thunar-vcs-plugin ripgrep gnome-font-viewer font-manager reflector unzip pavucontrol flatpak \
-  media-downloader-git tumbler network-manager-applet stow tmux discover pamac okular \
+  media-downloader-git tumbler network-manager-applet stow tmux discover pamac-all okular \
   gitnuro-bin xclicker freetube pkgfile man-pages openvpn networkmanager-openvpn mcomix wget \
-  nodejs npm gvfs gvfs-mtp android-tools virtualbox cava zoxide bluez bluez-utils blueman \
+  nodejs npm docker gvfs gvfs-mtp android-tools virtualbox cava zoxide bluez bluez-utils blueman \
   yt-dlp cliphist xclip copyq bc xdotool scrot maim brightnessctl feh swww gnome-calculator fd \
   neovim-nightly neovim-telescope-fzf-native-git neovim-telescope-ui-select-git fzf luarocks \
-  nwg-look lxappearance-gtk3 zukitwo-themes-git tela-circle-icon-theme-dracula gearlever \
-  archlinux-xdg-menu
+  nwg-look lxappearance-gtk3 gradience zukitwo-themes-git tela-circle-icon-theme-dracula gearlever \
+  archlinux-xdg-menu shortwave vesktop mkdocs mkdocs-material thefuck
 
 # GIMP-devel (might refuse to install and break installation of the rest packages,
 # and thus commented for now; safer to install separately afterwards)
@@ -55,7 +55,7 @@ paru -Syu --needed --noconfirm gnu-free-fonts noto-fonts ttf-bitstream-vera ttf-
 
 ## Gaming tools
 paru -Syu --needed --noconfirm steam lutris wine-staging protonup-qt-bin gamemode lib32-gamemode \
-  mangohud lib32-mangohud
+  mangohud lib32-mangohud fuse-overlayfs drawfs-bin
 
 # Wine dependencies (from lutris github)
 paru -Syu --needed --asdeps --noconfirm giflib lib32-giflib gnutls lib32-gnutls v4l-utils \
@@ -64,13 +64,14 @@ paru -Syu --needed --asdeps --noconfirm giflib lib32-giflib gnutls lib32-gnutls 
   libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs \
   vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2
 
+# CachyOS Proton
+paru -Syu --needed --noconfirm lib32-lzo lib32-blas lib32-lapack proton-cachyos
+
 # Display manager
 paru -Syu --needed --noconfirm ly
 
 ## Awesome
-paru -Syu --needed --noconfirm xorg awesome lain rofi picom polkit-gnome acpi
-mkdir -p /home/$username/.config/awesome
-git clone https://github.com/streetturtle/awesome-wm-widgets.git /home/$username/.config/awesome
+paru -Syu --needed --noconfirm xorg awesome lain rofi picom polkit-gnome acpi arc-icon-theme
 
 ## Hyprland
 paru -Syu --needed --noconfirm hyprland-git hyprpaper-git hyprpicker-git hyprpolkitagent-git \
@@ -78,26 +79,18 @@ paru -Syu --needed --noconfirm hyprland-git hyprpaper-git hyprpicker-git hyprpol
   egl-wayland qt5 qt6 qt5-wayland qt6-wayland playerctl uwsm wofi xsel mako waybar wl-clipboard \
   libva-nvidia-driver wlr-randr pyprland-git swayidle swaylock swaylock-fancy-git cpio
 
-# Setup Hyprland plugins
-hyprpm update
-hyprpm add https://github.com/shezdy/hyprsplit
-
 # Sync pkg database (needed for command-not-found zsh plugin to work)
 sudo pkgfile -u
 
 # Setup tmux
 # git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
-# Install flatpaks
-flatpak install flathub com.github.vikdevelop.timer
-flatpak install flathub com.github.tchx84.Flatseal
-flatpak install flathub org.bionus.Grabber
-
 # Enable services
 systemctl --user enable pipewire
 sudo systemctl enable ly
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth.service
+sudo systemctl enable docker
 
 # Add user to newly created groups
 sudo usermod -aG vboxusers $username
