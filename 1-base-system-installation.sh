@@ -28,8 +28,8 @@ mount /dev/disk/by-label/ESP /mnt/boot/efi
 
 
 # Install base system
-pacstrap /mnt base base-devel linux linux-firmware linux-headers intel-ucode nano git git-lfs \
-  glibc pacman-contrib curl
+pacstrap /mnt base base-devel linux linux-headers linux-zen linux-zen-headers linux-firmware \
+  intel-ucode nano git git-lfs glibc pacman-contrib curl
 genfstab -U /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt
