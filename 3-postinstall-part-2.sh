@@ -31,10 +31,10 @@ paru -Syu --needed --noconfirm gnu-free-fonts noto-fonts ttf-bitstream-vera ttf-
   ttf-ms-fonts nerd-fonts ttf-maple
 
 # Display managers
-paru -Syu --needed --noconfirm ly emptty
+paru -Syu --needed --noconfirm ly
 
 ## i3
-paru -Syu --needed --noconfirm xorg i3
+paru -Syu --needed --noconfirm xorg i3 autotiling dex maim polybar
 
 ## Awesome
 paru -Syu --needed --noconfirm xorg awesome lain rofi picom polkit-gnome acpi arc-icon-theme
@@ -56,10 +56,9 @@ sudo pkgfile -u
 
 # Enable services
 systemctl --user enable pipewire
-sudo systemctl enable emptty
+sudo systemctl enable ly
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth.service
 
 # Create custom $HOME directories
 mkdir /home/$username/{AI_Tools,Games,Mounts}
-

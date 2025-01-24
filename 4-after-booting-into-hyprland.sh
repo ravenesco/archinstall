@@ -11,8 +11,8 @@ mkdir -p /home/$username/.config/awesome
 git clone https://github.com/streetturtle/awesome-wm-widgets.git /home/$username/.config/awesome/awesome-wm-widgets
 
 # Install flatpaks
-flatpak install flathub com.github.vikdevelop.timer
 flatpak install flathub com.github.tchx84.Flatseal
+flatpak install flathub com.github.vikdevelop.timer
 flatpak install flathub org.bionus.Grabber
 
 # Apps
@@ -41,18 +41,24 @@ paru -Syu --needed --noconfirm guvcview guvcview-qt pipewire-v4l2 v4l2loopback-d
   v4l2loopback-utils lib32-pipewire-v4l2
 
 ## Gaming tools
-paru -Syu --needed --noconfirm steam lutris wine-staging protonup-qt-bin gamemode lib32-gamemode \
-  mangohud lib32-mangohud fuse-overlayfs drawfs-bin
-
-# Wine dependencies (from lutris github)
-paru -Syu --needed --asdeps --noconfirm giflib lib32-giflib gnutls lib32-gnutls v4l-utils \
-  lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib \
-  lib32-alsa-lib sqlite lib32-sqlite libxcomposite lib32-libxcomposite ocl-icd lib32-ocl-icd \
-  libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs \
-  vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2
-
+# With CachyOS repos
+sudo pacman -S cachyos-gaming-meta
 # CachyOS Proton
 paru -Syu --needed --noconfirm lib32-lzo lib32-blas lib32-lapack proton-cachyos
+
+# Without CachyOS repos
+# paru -Syu --needed --noconfirm steam lutris wine-staging protonup-qt-bin gamemode lib32-gamemode \
+#   mangohud lib32-mangohud fuse-overlayfs drawfs-bin
+
+# Wine dependencies (from lutris github)
+# paru -Syu --needed --asdeps --noconfirm giflib lib32-giflib gnutls lib32-gnutls v4l-utils \
+#   lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib \
+#   lib32-alsa-lib sqlite lib32-sqlite libxcomposite lib32-libxcomposite ocl-icd lib32-ocl-icd \
+#   libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs \
+#   vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2
+
+# Emulators
+paru -Syu --needed --noconfirm torzu-git
 
 # Setup tmux
 # git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
@@ -62,4 +68,3 @@ sudo systemctl enable docker
 
 # Add user to newly created groups
 sudo usermod -aG vboxusers,docker $username
-
