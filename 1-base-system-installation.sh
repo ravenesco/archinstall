@@ -5,7 +5,7 @@ mkfs.fat -F 32 /dev/nvme0n1p1
 fatlabel /dev/nvme0n1p1 ESP
 
 mkswap -L SWAP /dev/nvme0n1p2
-swapon /dev/disk/by-label/SWAP
+swapon /dev/nvme0n1p2
 
 mkfs.btrfs -L ROOT -f /dev/nvme0n1p3
 mount /dev/disk/by-label/ROOT /mnt
@@ -24,7 +24,7 @@ mount -o noatime,compress=zstd,space_cache=v2,commit=120,subvol=@.snapshots /dev
 mount -o noatime,compress=zstd,space_cache=v2,commit=120,subvol=@var@log /dev/nvme0n1p3 /mnt/var/log
 mount -o noatime,compress=zstd,space_cache=v2,commit=120,subvol=@var@tmp /dev/nvme0n1p3 /mnt/var/tmp
 
-mount /dev/disk/by-label/ESP /mnt/boot/efi
+mount /dev/nvme0n1p1 /mnt/boot/efi
 
 
 # Install base system

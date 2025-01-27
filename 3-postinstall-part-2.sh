@@ -33,17 +33,12 @@ paru -Syu --needed --noconfirm gnu-free-fonts noto-fonts ttf-bitstream-vera ttf-
 # Display managers
 paru -Syu --needed --noconfirm ly
 
-## i3
-paru -Syu --needed --noconfirm xorg i3 autotiling dex maim polybar
-
-## Awesome
-paru -Syu --needed --noconfirm xorg awesome lain rofi picom polkit-gnome acpi arc-icon-theme
-
 ## Hyprland
-paru -Syu --needed --noconfirm hyprland hyprpaper hyprpicker hyprpolkitagent \
+paru -Syu --needed hyprland hyprpaper hyprpicker hyprpolkitagent \
   hyprshot hyprland-qtutils hyprutils xdg-desktop-portal-hyprland hyprgraphics \
   egl-wayland qt5 qt6 qt5-wayland qt6-wayland playerctl uwsm wofi xsel mako waybar wl-clipboard \
-  libva-nvidia-driver wlr-randr pyprland swayidle swaylock swaylock-fancy cpio
+  libva-nvidia-driver wlr-randr pyprland swayidle swaylock swaylock-fancy cmake meson cpio \
+  pkg-config
 
 ## Hyprland (Git)
 # paru -Syu --needed --noconfirm hyprland-git hyprpaper-git hyprpicker-git hyprpolkitagent-git \
@@ -51,14 +46,19 @@ paru -Syu --needed --noconfirm hyprland hyprpaper hyprpicker hyprpolkitagent \
 #   egl-wayland qt5 qt6 qt5-wayland qt6-wayland playerctl uwsm wofi xsel mako waybar wl-clipboard \
 #   libva-nvidia-driver wlr-randr pyprland-git swayidle swaylock swaylock-fancy-git cpio
 
+
+## i3
+paru -Syu --needed xorg i3 autotiling dex maim polybar
+
+## Awesome
+paru -Syu --needed xorg awesome lain rofi picom polkit-gnome acpi arc-icon-theme
+
 # Sync pkg database (needed for command-not-found zsh plugin to work)
 sudo pkgfile -u
 
 # Enable services
-systemctl --user enable pipewire
 sudo systemctl enable ly
 sudo systemctl enable NetworkManager
-sudo systemctl enable bluetooth.service
 
 # Create custom $HOME directories
-mkdir /home/$username/{AI_Tools,Games,Mounts}
+mkdir /home/$username/{AI_Tools,Games,Mounts,My,Media,Misc,Code}
