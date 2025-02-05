@@ -30,7 +30,9 @@ paru -Syu --needed brave-bin librewolf-bin terminator ghostty \
   neovim-nightly neovim-telescope-fzf-native-git neovim-telescope-ui-select-git fzf luarocks \
   nwg-look lxappearance-gtk3 gradience zukitwo-themes-git tela-circle-icon-theme-dracula gearlever \
   archlinux-xdg-menu shortwave vesktop mkdocs mkdocs-material thefuck vscodium-bin \
-  vscodium-bin-features vscodium-bin-marketplace python-yapsy-git
+  vscodium-bin-features vscodium-bin-marketplace python-yapsy-git \
+  gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive \
+  gvfs-smb gvfs-wsdd
 
 # Controversial due to snapd requirements: pamac-all
 
