@@ -30,9 +30,9 @@ paru -Syu --needed brave-bin librewolf-bin terminator ghostty \
   neovim-nightly neovim-telescope-fzf-native-git neovim-telescope-ui-select-git fzf luarocks \
   nwg-look lxappearance-gtk3 gradience zukitwo-themes-git tela-circle-icon-theme-dracula gearlever \
   archlinux-xdg-menu shortwave vesktop mkdocs mkdocs-material thefuck vscodium-bin \
-  vscodium-bin-features vscodium-bin-marketplace python-yapsy-git \
+  vscodium-bin-features vscodium-bin-marketplace python-yapsy-git darktable rawtherapee mypaint \
   gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive \
-  gvfs-smb gvfs-wsdd
+  gvfs-smb gvfs-wsdd obsidian freefilesync syncthing
 
 # Controversial due to snapd requirements: pamac-all
 
@@ -55,7 +55,7 @@ paru -Sy --needed protonup-qt-bin gamemode lib32-gamemode mangohud lib32-mangohu
 paru -Syu --needed --noconfirm lib32-lzo lib32-blas lib32-lapack proton-cachyos
 
 # Without CachyOS repos
-# paru -Syu --needed --noconfirm steam lutris wine-staging 
+# paru -Syu --needed --noconfirm steam lutris wine-staging
 
 # Wine dependencies (from lutris github)
 # paru -Syu --needed --asdeps --noconfirm giflib lib32-giflib gnutls lib32-gnutls v4l-utils \
