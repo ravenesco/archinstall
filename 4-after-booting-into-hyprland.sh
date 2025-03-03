@@ -10,11 +10,6 @@ hyprpm add https://github.com/shezdy/hyprsplit
 mkdir -p /home/$username/.config/awesome
 git clone https://github.com/streetturtle/awesome-wm-widgets.git /home/$username/.config/awesome/awesome-wm-widgets
 
-# Install flatpaks
-flatpak install flathub com.github.tchx84.Flatseal
-flatpak install flathub com.github.vikdevelop.timer
-flatpak install flathub org.bionus.Grabber
-
 # Apps
 paru -Syu --needed brave-bin librewolf-bin terminator ghostty \
   zstd mlocate mpv bat bat-extras fastfetch lolcat bind man-db tealdeer lsd htop qbittorrent \
@@ -38,6 +33,11 @@ paru -Syu --needed brave-bin librewolf-bin terminator ghostty \
 
 # Gradience relies on yapsy, so installing it here
 paru -Syu --needed --noconfirm gradience
+
+# Install flatpaks
+flatpak install flathub com.github.tchx84.Flatseal
+flatpak install flathub com.github.vikdevelop.timer
+flatpak install flathub org.bionus.Grabber
 
 # GIMP-devel (might refuse to install and break installation of the rest packages,
 # and thus commented for now; safer to install separately afterwards)
