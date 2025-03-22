@@ -8,13 +8,14 @@ hyprpm add https://github.com/shezdy/hyprsplit
 
 # Setup Awesome widgets
 mkdir -p /home/$username/.config/awesome
-git clone https://github.com/streetturtle/awesome-wm-widgets.git /home/$username/.config/awesome/awesome-wm-widgets
+git clone https://github.com/streetturtle/awesome-wm-widgets.git \
+  /home/$username/.config/awesome/awesome-wm-widgets
 
 # Apps
 paru -Syu --needed brave-bin librewolf-bin terminator ghostty \
   zstd mlocate mpv bat bat-extras fastfetch lolcat bind man-db tealdeer lsd htop qbittorrent \
   uv keepassxc obs-studio ocs-url downgrade dolphin ark gwenview yazi \
-  tauon-music-box digikam calibre komikku filelight imagemagick ticktick less gnome-disk-utility\
+  digikam calibre komikku filelight imagemagick ticktick less gnome-disk-utility\
   thunar thunar-volman thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin \
   thunar-vcs-plugin ripgrep gnome-font-viewer font-manager reflector unzip pavucontrol flatpak \
   media-downloader-git tumbler network-manager-applet stow tmux discover okular \
@@ -27,9 +28,11 @@ paru -Syu --needed brave-bin librewolf-bin terminator ghostty \
   archlinux-xdg-menu shortwave vesktop mkdocs mkdocs-material thefuck vscodium-bin \
   vscodium-bin-features vscodium-bin-marketplace python-yapsy-git darktable rawtherapee mypaint \
   gvfs gvfs-afc gvfs-dnssd gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-onedrive \
-  gvfs-smb gvfs-wsdd obsidian freefilesync syncthing
+  gvfs-smb gvfs-wsdd obsidian freefilesync syncthing kvantum kvantum-qt5 \
+  catppuccin-gtk-theme-macchiato eww gimp koodo-reader-bin
 
 # Controversial due to snapd requirements: pamac-all
+# Optional packages: tauon-music-box aur/clementine
 
 # Gradience relies on yapsy, so installing it here
 paru -Syu --needed --noconfirm gradience
@@ -39,10 +42,6 @@ flatpak install flathub com.github.tchx84.Flatseal
 flatpak install flathub com.github.vikdevelop.timer
 flatpak install flathub org.bionus.Grabber
 
-# GIMP-devel (might refuse to install and break installation of the rest packages,
-# and thus commented for now; safer to install separately afterwards)
-paru -Syu --needed --noconfirm gimp-devel
-
 # Packages for OBS virtual camera setup
 paru -Syu --needed --noconfirm guvcview guvcview-qt pipewire-v4l2 v4l2loopback-dkms \
   v4l2loopback-utils lib32-pipewire-v4l2
@@ -50,7 +49,8 @@ paru -Syu --needed --noconfirm guvcview guvcview-qt pipewire-v4l2 v4l2loopback-d
 ## Gaming tools
 # With CachyOS repos
 sudo pacman -S cachyos-gaming-meta
-paru -Sy --needed protonup-qt-bin gamemode lib32-gamemode mangohud lib32-mangohud fuse-overlayfs drawfs-bin
+paru -Sy --needed protonup-qt-bin gamemode lib32-gamemode mangohud lib32-mangohud fuse-overlayfs \
+  drawfs-bin
 # CachyOS Proton
 paru -Syu --needed --noconfirm lib32-lzo lib32-blas lib32-lapack proton-cachyos
 

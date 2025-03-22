@@ -38,7 +38,7 @@ paru -Syu --needed hyprland hyprpaper hyprpicker hyprpolkitagent \
   hyprshot hyprland-qtutils hyprutils xdg-desktop-portal-hyprland hyprgraphics \
   egl-wayland qt5 qt6 qt5-wayland qt6-wayland playerctl uwsm wofi xsel mako waybar wl-clipboard \
   libva-nvidia-driver wlr-randr pyprland swayidle swaylock swaylock-fancy cmake meson cpio \
-  pkg-config xdg-desktop-portal-wlr
+  pkg-config xdg-desktop-portal-wlr qt5ct qt6ct
 
 ## Hyprland (Git)
 # paru -Syu --needed --noconfirm hyprland-git hyprpaper-git hyprpicker-git hyprpolkitagent-git \
